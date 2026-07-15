@@ -1,0 +1,15 @@
+<svg viewBox="0 0 40 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- o "0" como trilha de placa, com vias -->
+  <circle cx="15" cy="16" r="12.5" fill="none" stroke="#0f7a53" stroke-width="2.6"/>
+  <circle cx="15" cy="3.5" r="2.4" fill="#0f7a53"/>
+  <circle cx="15" cy="28.5" r="2.4" fill="#0f7a53"/>
+  <!-- LED dentro do zero: brilho + símbolo -->
+  <circle cx="14.5" cy="16" r="7.5" fill="#e5443b" opacity="0.18"/>
+  <polygon points="10,11.5 10,20.5 18,16" fill="#1c2118"/>
+  <line x1="18" y1="10.5" x2="18" y2="21.5" stroke="#1c2118" stroke-width="2.3" stroke-linecap="round"/>
+  <line x1="20.5" y1="9.5" x2="23.5" y2="6.5" stroke="#e5443b" stroke-width="1.9" stroke-linecap="round"/>
+  <line x1="22.5" y1="12.5" x2="25.5" y2="9.5" stroke="#e5443b" stroke-width="1.9" stroke-linecap="round"/>
+  <!-- o "1" como trilha de cobre com via -->
+  <path d="M31 6.5 L35 3.5 L35 28.5" fill="none" stroke="#c2703d" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="35" cy="28.5" r="2.4" fill="#c2703d"/>
+</svg>
