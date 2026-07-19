@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loja — Eletrônica 01</title>
+<meta name="description" content="A lista de compras do Eletrônica 01: as mesmas peças usadas nos projetos do site, testadas na bancada, com link direto pra Shopee. Kits, componentes e a vitrine completa.">
+<link rel="icon" type="image/svg+xml" href="/marca.svg">
+<link rel="canonical" href="https://eletronica01.com.br/loja/">
+<meta property="og:url" content="https://eletronica01.com.br/loja/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Eletrônica 01">
+<meta property="og:title" content="Loja — Eletrônica 01">
+<meta property="og:description" content="As mesmas peças dos projetos do site, com link direto pra Shopee. Sem enrolação: o que comprar, por que, e o que observar antes de pagar.">
+<meta property="og:locale" content="pt_BR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Mesma paleta de bancada do site principal */
+    --bancada:      #efe9db;
+    --papel:        #faf7ef;
+    --tinta:        #1c2118;
+    --grafite:      #5c6152;
+    --pcb:          #0f7a53;
+    --pcb-escuro:   #0b5c3e;
+    --led:          #e5443b;
+    --cobre:        #c2703d;
+    --fio-azul:     #2f6fb0;
+    --linha:        #d8d0bd;
+    --linha-forte:  #c3b9a1;
+    --laranja-shopee: #ee4d2d;
+    --laranja-escuro: #c93a1d;
+    --display:'Space Grotesk',sans-serif;
+    --corpo:'IBM Plex Sans',sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bancada);
+    color:var(--tinta);
+    font-family:var(--corpo);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(var(--linha-forte) 1px, transparent 1.4px);
+    background-size:22px 22px;
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  /* ---------- Barra de afiliado (transparência) ---------- */
+  .aviso-afiliado{
+    background:var(--tinta);color:#efe9db;font-family:var(--mono);
+    font-size:.72rem;letter-spacing:.02em;text-align:center;padding:7px 16px;
+  }
+  .aviso-afiliado b{color:#ffd27a;font-weight:600}
+
+  /* ---------- Header ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(250,247,239,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--linha-forte)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+  .logo{font-family:var(--display);font-weight:700;font-size:1.15rem;color:var(--tinta);text-decoration:none;display:inline-flex;align-items:center;gap:9px}
+  .logo .marca{width:34px;height:28px;display:block}
+  .logo .selo-loja{font-family:var(--mono);font-weight:600;font-size:.62rem;letter-spacing:.08em;color:#fff;background:var(--cobre);border-radius:6px;padding:2px 7px;text-transform:uppercase}
+  .nav-links{display:flex;gap:22px;font-family:var(--mono);font-size:.8rem}
+  .nav-links a{color:var(--grafite);text-decoration:none}
+  .nav-links a:hover{color:var(--pcb)}
+  @media(max-width:640px){.nav-links{display:none}}
+
+  /* ---------- Botões (idênticos ao site) ---------- */
+  .btn{font-family:var(--mono);font-weight:600;font-size:.9rem;padding:13px 22px;border-radius:10px;border:1px solid transparent;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .12s,box-shadow .15s,background .15s}
+  .btn-pcb{background:var(--pcb);color:#fff;box-shadow:0 3px 0 var(--pcb-escuro)}
+  .btn-pcb:hover{transform:translateY(-1px);box-shadow:0 5px 0 var(--pcb-escuro)}
+  .btn-pcb:active{transform:translateY(2px);box-shadow:0 1px 0 var(--pcb-escuro)}
+  .btn-ghost{background:transparent;color:var(--tinta);border-color:var(--linha-forte)}
+  .btn-ghost:hover{border-color:var(--pcb);color:var(--pcb)}
+  .btn-shopee{background:var(--laranja-shopee);color:#fff;box-shadow:0 3px 0 var(--laranja-escuro)}
+  .btn-shopee:hover{transform:translateY(-1px);box-shadow:0 5px 0 var(--laranja-escuro)}
+  .btn-shopee:active{transform:translateY(2px);box-shadow:0 1px 0 var(--laranja-escuro)}
+
+  /* ---------- Hero ---------- */
+  .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;padding:52px 0 40px}
+  @media(max-width:820px){.hero{grid-template-columns:1fr;padding:38px 0 26px}}
+  .hero-eyebrow{font-family:var(--mono);font-weight:600;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cobre);margin-bottom:12px}
+  .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,4.6vw,3rem);line-height:1.12;letter-spacing:-.01em;margin-bottom:16px}
+  .hero h1 em{font-style:normal;color:var(--pcb)}
+  .hero p{color:var(--grafite);font-size:1.05rem;max-width:52ch;margin-bottom:24px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+
+  /* recibo de bancada — a arte do hero */
+  .recibo{background:var(--papel);border:1px solid var(--linha-forte);border-radius:14px;padding:22px 24px;box-shadow:0 10px 24px rgba(28,33,24,.08);transform:rotate(1.4deg);font-family:var(--mono)}
+  .recibo .rec-topo{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grafite);text-align:center;border-bottom:1px dashed var(--linha-forte);padding-bottom:10px;margin-bottom:12px}
+  .recibo table{width:100%;border-collapse:collapse;font-size:.78rem}
+  .recibo td{padding:4.5px 0}
+  .recibo td:first-child{color:var(--grafite)}
+  .recibo td:last-child{text-align:right;font-weight:600}
+  .recibo .ok{color:var(--pcb)}
+  .recibo .rec-fim{border-top:1px dashed var(--linha-forte);margin-top:12px;padding-top:10px;font-size:.7rem;color:var(--grafite);text-align:center}
+  @media(max-width:820px){.recibo{transform:none;max-width:420px}}
+
+  /* ---------- Seções ---------- */
+  .secao{padding:34px 0}
+  .secao-topo{margin-bottom:22px}
+  .secao-topo h2{font-family:var(--display);font-weight:700;font-size:1.65rem;letter-spacing:-.01em}
+  .secao-topo p{color:var(--grafite);margin-top:4px}
+  .secao-eyebrow{font-family:var(--mono);font-weight:600;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cobre);margin-bottom:6px}
+
+  /* ---------- Cards de produto ---------- */
+  .grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+  .item{background:var(--papel);border:1px solid var(--linha-forte);border-radius:14px;display:flex;flex-direction:column;overflow:hidden;transition:transform .15s,box-shadow .15s}
+  .item:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(28,33,24,.1)}
+  .item-figura{background:var(--bancada);border-bottom:1px solid var(--linha);padding:18px;display:flex;align-items:center;justify-content:center;position:relative;min-height:132px}
+  .item-figura svg{width:100%;max-width:210px;height:auto;display:block}
+  .item-ref{position:absolute;top:12px;left:14px;font-family:var(--mono);font-weight:600;font-size:.66rem;letter-spacing:.08em;color:var(--grafite);background:var(--papel);border:1px solid var(--linha);border-radius:6px;padding:2px 8px}
+  .item-corpo{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .item-corpo h3{font-family:var(--display);font-weight:700;font-size:1.08rem;line-height:1.3}
+  .item-corpo .desc{color:var(--grafite);font-size:.88rem;flex:1}
+  .usado-em{font-family:var(--mono);font-size:.68rem;color:var(--pcb);background:rgba(15,122,83,.08);border:1px solid rgba(15,122,83,.25);border-radius:6px;padding:3px 9px;align-self:flex-start}
+  .dica{font-size:.8rem;color:var(--grafite);background:var(--bancada);border-left:3px solid var(--cobre);border-radius:0 8px 8px 0;padding:8px 11px}
+  .dica b{color:var(--tinta)}
+  .item-rodape{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:2px}
+  .buy{font-family:var(--mono);font-weight:600;font-size:.8rem;padding:9px 15px;border-radius:8px;background:var(--pcb);color:#fff;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;transition:background .15s}
+  .buy:hover{background:var(--pcb-escuro)}
+  .buy.sem-link{background:#e9e2d1;color:var(--grafite);border:1px dashed var(--linha-forte)}
+  .plataforma{font-family:var(--mono);font-size:.66rem;color:var(--grafite)}
+
+  /* destaque de kit (card largo) */
+  .item-destaque{grid-column:1/-1;flex-direction:row;align-items:stretch}
+  .item-destaque .item-figura{border-bottom:none;border-right:1px solid var(--linha);min-width:280px;min-height:auto}
+  @media(max-width:720px){.item-destaque{flex-direction:column}.item-destaque .item-figura{border-right:none;border-bottom:1px solid var(--linha);min-width:auto;min-height:132px}}
+
+  /* ---------- Vitrine Shopee ---------- */
+  .vitrine{background:var(--papel);border:1px solid var(--linha-forte);border-radius:16px;padding:30px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;position:relative;overflow:hidden}
+  .vitrine::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:repeating-linear-gradient(180deg,var(--laranja-shopee) 0 14px,transparent 14px 22px)}
+  .vitrine h2{font-family:var(--display);font-weight:700;font-size:1.5rem;margin-bottom:8px}
+  .vitrine p{color:var(--grafite);max-width:56ch}
+  @media(max-width:720px){.vitrine{grid-template-columns:1fr}}
+
+  /* ---------- Como funciona ---------- */
+  .honesto{background:var(--papel);border:1px dashed var(--linha-forte);border-radius:14px;padding:22px 24px}
+  .honesto h2{font-family:var(--display);font-size:1.2rem;margin-bottom:10px}
+  .honesto p{color:var(--grafite);font-size:.92rem;max-width:76ch}
+  .honesto p+p{margin-top:8px}
+
+  /* ---------- Footer ---------- */
+  footer{margin-top:44px;border-top:1px solid var(--linha-forte);background:var(--papel)}
+  .foot{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:30px 20px}
+  @media(max-width:720px){.foot{grid-template-columns:1fr}}
+  .foot h5{font-family:var(--display);font-size:1rem;margin-bottom:8px}
+  .foot p{color:var(--grafite);font-size:.86rem}
+  .foot .disc b{color:var(--tinta)}
+  .copy{border-top:1px solid var(--linha);text-align:center;font-family:var(--mono);font-size:.7rem;color:var(--grafite);padding:14px}
+  .voltar-flutuante{display:none}
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none!important;animation:none!important}
+    html{scroll-behavior:auto}
+  }
+  a:focus-visible,button:focus-visible{outline:3px solid var(--fio-azul);outline-offset:2px;border-radius:6px}
+</style>
+</head>
+<body>
+
+<div class="aviso-afiliado">
+  🔗 Os links desta página são de <b>afiliado</b>. Se você comprar por eles, ganho uma pequena comissão — <b>sem custo extra pra você</b>.
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo">
+      <svg class="marca" viewBox="0 0 40 32" aria-hidden="true"><circle cx="15" cy="16" r="12.5" fill="none" stroke="#0f7a53" stroke-width="2.6"/><circle cx="15" cy="3.5" r="2.4" fill="#0f7a53"/><circle cx="15" cy="28.5" r="2.4" fill="#0f7a53"/><circle cx="14.5" cy="16" r="7.5" fill="#e5443b" opacity="0.18"/><polygon points="10,11.5 10,20.5 18,16" fill="#1c2118"/><line x1="18" y1="10.5" x2="18" y2="21.5" stroke="#1c2118" stroke-width="2.3" stroke-linecap="round"/><line x1="20.5" y1="9.5" x2="23.5" y2="6.5" stroke="#e5443b" stroke-width="1.9" stroke-linecap="round"/><line x1="22.5" y1="12.5" x2="25.5" y2="9.5" stroke="#e5443b" stroke-width="1.9" stroke-linecap="round"/><path d="M31 6.5 L35 3.5 L35 28.5" fill="none" stroke="#c2703d" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="35" cy="28.5" r="2.4" fill="#c2703d"/></svg>
+      Eletrônica&nbsp;01 <span class="selo-loja">Loja</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/">← Voltar ao site</a>
+      <a href="#kits">Kits</a>
+      <a href="#pecas">Peças avulsas</a>
+      <a href="#vitrine">Vitrine Shopee</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div>
+      <div class="hero-eyebrow">A lista de compras da bancada</div>
+      <h1>Compre <em>a peça certa</em> de primeira.</h1>
+      <p>Tudo aqui é o que os projetos do site realmente usam — nada de encher carrinho à toa. Cada item diz pra que serve, em qual projeto entra e o que conferir antes de pagar.</p>
+      <div class="cta-row">
+        <a href="#kits" class="btn btn-pcb">Ver os kits ↓</a>
+        <a href="https://collshp.com/eletronica01" target="_blank" rel="nofollow sponsored noopener" class="btn btn-ghost">🛍 Vitrine completa na Shopee</a>
+      </div>
+    </div>
+    <div class="recibo" aria-hidden="true">
+      <div class="rec-topo">Eletrônica 01 · lista de materiais</div>
+      <table>
+        <tr><td>LED 5 mm difuso</td><td class="ok">✓ na bancada</td></tr>
+        <tr><td>Resistor 330 Ω (kit)</td><td class="ok">✓ na bancada</td></tr>
+        <tr><td>Protoboard 400 pts</td><td class="ok">✓ na bancada</td></tr>
+        <tr><td>CI NE555</td><td class="ok">✓ na bancada</td></tr>
+        <tr><td>Suporte 2× AA</td><td class="ok">✓ na bancada</td></tr>
+        <tr><td>Arduino Uno R3</td><td class="ok">✓ na bancada</td></tr>
+      </table>
+      <div class="rec-fim">* * *  seu projeto 01 vai acender  * * *</div>
+    </div>
+  </section>
+
+  <!-- ================= KITS ================= -->
+  <section class="secao" id="kits">
+    <div class="secao-topo">
+      <div class="secao-eyebrow">Caminho mais barato</div>
+      <h2>Kits pra começar</h2>
+      <p>Um kit sai mais em conta do que comprar peça por peça — e já chega com tudo que os primeiros projetos pedem.</p>
+    </div>
+    <div class="grade">
+
+      <!-- Kit iniciante (destaque) -->
+      <article class="item item-destaque">
+        <div class="item-figura">
+          <span class="item-ref">KIT-01</span>
+          <svg viewBox="0 0 240 140" role="img" aria-label="Kit iniciante: protoboard, LEDs, resistores e jumpers">
+            <rect x="18" y="30" width="130" height="84" rx="8" fill="#fff" stroke="#c3b9a1" stroke-width="2"/>
+            <g fill="#5c6152"><circle cx="34" cy="46" r="2"/><circle cx="46" cy="46" r="2"/><circle cx="58" cy="46" r="2"/><circle cx="70" cy="46" r="2"/><circle cx="82" cy="46" r="2"/><circle cx="94" cy="46" r="2"/><circle cx="106" cy="46" r="2"/><circle cx="118" cy="46" r="2"/><circle cx="34" cy="60" r="2"/><circle cx="46" cy="60" r="2"/><circle cx="58" cy="60" r="2"/><circle cx="70" cy="60" r="2"/><circle cx="82" cy="60" r="2"/><circle cx="94" cy="60" r="2"/><circle cx="106" cy="60" r="2"/><circle cx="118" cy="60" r="2"/><circle cx="34" cy="84" r="2"/><circle cx="46" cy="84" r="2"/><circle cx="58" cy="84" r="2"/><circle cx="70" cy="84" r="2"/><circle cx="82" cy="84" r="2"/><circle cx="94" cy="84" r="2"/><circle cx="106" cy="84" r="2"/><circle cx="118" cy="84" r="2"/><circle cx="34" cy="98" r="2"/><circle cx="46" cy="98" r="2"/><circle cx="58" cy="98" r="2"/><circle cx="70" cy="98" r="2"/><circle cx="82" cy="98" r="2"/><circle cx="94" cy="98" r="2"/><circle cx="106" cy="98" r="2"/><circle cx="118" cy="98" r="2"/></g>
+            <line x1="18" y1="72" x2="148" y2="72" stroke="#efe9db" stroke-width="5"/>
+            <path d="M60 60 C 75 40, 100 40, 106 60" fill="none" stroke="#2f6fb0" stroke-width="3.4" stroke-linecap="round"/>
+            <path d="M46 84 C 60 104, 84 106, 94 88" fill="none" stroke="#e5443b" stroke-width="3.4" stroke-linecap="round"/>
+            <g><path d="M182 52 a10 10 0 0 1 20 0 v10 h-20 z" fill="#e5443b" opacity=".9"/><rect x="180" y="62" width="24" height="5" rx="2" fill="#e5443b" opacity=".55"/><line x1="188" y1="67" x2="188" y2="88" stroke="#5c6152" stroke-width="2.4"/><line x1="196" y1="67" x2="196" y2="82" stroke="#5c6152" stroke-width="2.4"/></g>
+            <g transform="translate(158,100)"><line x1="0" y1="8" x2="14" y2="8" stroke="#5c6152" stroke-width="2.4"/><rect x="14" y="2" width="36" height="12" rx="5" fill="#e8d8b0" stroke="#c2703d" stroke-width="1.6"/><rect x="20" y="2" width="4.5" height="12" fill="#c2703d"/><rect x="28" y="2" width="4.5" height="12" fill="#1c2118"/><rect x="36" y="2" width="4.5" height="12" fill="#e5443b"/><line x1="50" y1="8" x2="64" y2="8" stroke="#5c6152" stroke-width="2.4"/></g>
+            <text x="163" y="34" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#5c6152">LED + R</text>
+          </svg>
+        </div>
+        <div class="item-corpo">
+          <h3>Kit iniciante de eletrônica</h3>
+          <span class="usado-em">▸ cobre os Projetos 01, 02 e 03 do site</span>
+          <p class="desc">Protoboard, jumpers, LEDs, resistores e mais num pacote só. É a compra que eu recomendo pra quem está começando do zero: sai mais barato que peça avulsa e sobra material pra inventar.</p>
+          <p class="dica"><b>Antes de pagar, confira:</b> se o kit traz protoboard de 400 pontos ou maior, jumpers macho-macho e resistores de valores variados (principalmente 330 Ω e 1 kΩ).</p>
+          <div class="item-rodape">
+            <span class="plataforma">Shopee</span>
+            <a class="buy" data-link="kit-iniciante" target="_blank" rel="nofollow sponsored noopener">Ver na Shopee ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Arduino Uno -->
+      <article class="item">
+        <div class="item-figura">
+          <span class="item-ref">ARD-01</span>
+          <svg viewBox="0 0 200 120" role="img" aria-label="Placa Arduino Uno">
+            <rect x="30" y="20" width="140" height="80" rx="8" fill="#0f7a53" stroke="#0b5c3e" stroke-width="2"/>
+            <rect x="18" y="30" width="24" height="18" rx="2" fill="#9aa39b" stroke="#5c6152" stroke-width="1.5"/>
+            <rect x="18" y="68" width="20" height="14" rx="2" fill="#1c2118"/>
+            <rect x="88" y="48" width="44" height="18" rx="2" fill="#1c2118"/>
+            <circle cx="93" cy="52" r="1.6" fill="#efe9db"/>
+            <rect x="44" y="24" width="80" height="7" rx="2" fill="#1c2118"/>
+            <rect x="52" y="90" width="64" height="7" rx="2" fill="#1c2118"/>
+            <circle cx="152" cy="34" r="3.2" fill="#ffd27a"/>
+            <circle cx="152" cy="46" r="3.2" fill="#e5443b"/>
+            <text x="140" y="92" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#efe9db">UNO</text>
+          </svg>
+        </div>
+        <div class="item-corpo">
+          <h3>Arduino Uno R3 (com cabo)</h3>
+          <span class="usado-em">▸ Projeto 04 — seu começo na robótica</span>
+          <p class="desc">A porta de entrada da programação de hardware. Placas compatíveis (CH340) funcionam igual às originais pra aprender — só precisam de um driver no Windows.</p>
+          <p class="dica"><b>Antes de pagar, confira:</b> se vem com o cabo USB. Parece detalhe, mas metade dos anúncios baratos não inclui.</p>
+          <div class="item-rodape">
+            <span class="plataforma">Shopee</span>
+            <a class="buy" data-link="arduino-uno" target="_blank" rel="nofollow sponsored noopener">Ver na Shopee ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Kit Arduino / robótica -->
+      <article class="item">
+        <div class="item-figura">
+          <span class="item-ref">KIT-02</span>
+          <svg viewBox="0 0 200 120" role="img" aria-label="Kit de robótica com Arduino e sensores">
+            <rect x="24" y="34" width="86" height="52" rx="6" fill="#0f7a53" stroke="#0b5c3e" stroke-width="2"/>
+            <rect x="52" y="50" width="30" height="14" rx="2" fill="#1c2118"/>
+            <rect x="34" y="38" width="52" height="5" rx="2" fill="#1c2118"/>
+            <g transform="translate(128,26)"><circle cx="16" cy="16" r="14" fill="#c8cfd6" stroke="#5c6152" stroke-width="2"/><circle cx="16" cy="16" r="7" fill="#2f6fb0" opacity=".8"/><circle cx="16" cy="16" r="3" fill="#1c2118"/></g>
+            <g transform="translate(126,70)"><rect x="0" y="0" width="44" height="26" rx="4" fill="#e8d8b0" stroke="#c2703d" stroke-width="1.8"/><circle cx="12" cy="13" r="7" fill="#fff" stroke="#5c6152" stroke-width="1.6"/><circle cx="32" cy="13" r="7" fill="#fff" stroke="#5c6152" stroke-width="1.6"/><g stroke="#5c6152" stroke-width="1.2"><line x1="12" y1="8" x2="12" y2="18"/><line x1="7" y1="13" x2="17" y2="13"/><line x1="32" y1="8" x2="32" y2="18"/><line x1="27" y1="13" x2="37" y2="13"/></g></g>
+            <text x="132" y="112" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#5c6152">sensores</text>
+          </svg>
+        </div>
+        <div class="item-corpo">
+          <h3>Kit robótica com Arduino e sensores</h3>
+          <span class="usado-em">▸ pra depois do Projeto 04</span>
+          <p class="desc">Quando o LED piscando não impressionar mais: sensores de distância, som, luz, servo motor. Material pra meses de projeto.</p>
+          <p class="dica"><b>Antes de pagar, confira:</b> se inclui sensor ultrassônico (HC-SR04) e pelo menos um servo — são os dois que mais rendem projeto.</p>
+          <div class="item-rodape">
+            <span class="plataforma">Shopee</span>
+            <a class="buy" data-link="kit-arduino" target="_blank" rel="nofollow sponsored noopener">Ver na Shopee ↗</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= PEÇAS AVULSAS ================= -->
+  <section class="secao" id="pecas">
+    <div class="secao-topo">
+      <div class="secao-eyebrow">Reposição e complemento</div>
+      <h2>Peças avulsas</h2>
+      <p>Pra quem já tem a base — ou queimou um LED aprendendo (acontece com todo mundo).</p>
+    </div>
+    <div class="grade">
+
+      <!-- LED 5mm -->
+      <article class="item">
+        <div class="item-figura">
+          <span class="item-ref">LED-01</span>
+          <svg viewBox="0 0 200 120" role="img" aria-label="LED 5 mm difuso">
+            <circle cx="100" cy="52" r="30" fill="#e5443b" opacity=".14"/>
+            <path d="M84 48 a16 16 0 0 1 32 0 v18 h-32 z" fill="#e5443b" opacity=".92"/>
+            <rect x="80" y="66" width="40" height="7" rx="3" fill="#e5443b" opacity=".55"/>
+            <line x1="92" y1="73" x2="92" y2="106" stroke="#5c6152" stroke-width="3"/>
+            <line x1="108" y1="73" x2="108" y2="96" stroke="#5c6152" stroke-width="3"/>
+            <line x1="128" y1="34" x2="138" y2="24" stroke="#e5443b" stroke-width="2.6" stroke-linecap="round"/>
+            <line x1="122" y1="26" x2="132" y2="16" stroke="#e5443b" stroke-width="2.6" stroke-linecap="round"/>
+            <text x="70" y="112" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#5c6152">+ perna longa</text>
+          </svg>
+        </div>
+        <div class="item-corpo">
+          <h3>LED 5 mm difuso (pacote)</h3>
+          <span class="usado-em">▸ Projetos 01, 02 e 03</span>
+          <p class="desc">O protagonista do seu primeiro circuito. Difuso é melhor pra aprender: acende visível de qualquer ângulo, sem ofuscar.</p>
+          <p class="dica"><b>Antes de pagar, confira:</b> pacote sortido (vermelho, verde, amarelo) rende mais que um só de cor única.</p>
+          <div class="item-rodape">
+            <span class="plataforma">Shopee</span>
+            <a class="buy" data-link="led-5mm" target="_blank" rel="nofollow sponsored noopener">Ver na Shopee ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Kit resistores -->
+      <article class="item">
+        <div class="item-figura">
+          <span class="item-ref">RES-01</span>
+          <svg viewBox="0 0 200 120" role="img" aria-label="Kit de resistores de um quarto de watt">
+            <g transform="translate(30,30)"><line x1="0" y1="10" x2="24" y2="10" stroke="#5c6152" stroke-width="2.6"/><rect x="24" y="2" width="52" height="16" rx="7" fill="#e8d8b0" stroke="#c2703d" stroke-width="1.8"/><rect x="33" y="2" width="6" height="16" fill="#c2703d"/><rect x="45" y="2" width="6" height="16" fill="#c2703d"/><rect x="57" y="2" width="6" height="16" fill="#1c2118"/><line x1="76" y1="10" x2="100" y2="10" stroke="#5c6152" stroke-width="2.6"/><text x="104" y="14" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#5c6152">330Ω</text></g>
+            <g transform="translate(30,62)"><line x1="0" y1="10" x2="24" y2="10" stroke="#5c6152" stroke-width="2.6"/><rect x="24" y="2" width="52" height="16" rx="7" fill="#e8d8b0" stroke="#c2703d" stroke-width="1.8"/><rect x="33" y="2" width="6" height="16" fill="#c2703d"/><rect x="45" y="2" width="6" height="16" fill="#1c2118"/><rect x="57" y="2" width="6" height="16" fill="#e5443b"/><line x1="76" y1="10" x2="100" y2="10" stroke="#5c6152" stroke-width="2.6"/><text x="104" y="14" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#5c6152">1kΩ</text></g>
+            <text x="30" y="104" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#5c6152">faixas de cor = valor</text>
+          </svg>
+        </div>
+        <div class="item-corpo">
+          <h3>Kit resistores 1/4 W</h3>
+          <span class="usado-em">▸ todos os projetos do site</span>
+          <p class="desc">Resistor se compra em kit, nunca avulso: custa quase o mesmo e você nunca fica na mão. É a peça que protege o LED — e todo o resto.</p>
+          <p class="dica"><b>Antes de pagar, confira:</b> se o kit tem 330 Ω e 1 kΩ na lista de valores. São os dois que o site mais usa.</p>
+          <div class="item-rodape">
+            <span class="plataforma">Shopee</span>
+            <a class="buy" data-link="resistor-kit" target="_blank" rel="nofollow sponsored noopener">Ver na Shopee ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Protoboard -->
+      <article class="item">
+        <div class="item-figura">
+          <span class="item-ref">PRB-01</span>
+          <svg viewBox="0 0 200 120" role="img" aria-label="Protoboard de 400 pontos com jumpers">
+            <rect x="30" y="24" width="140" height="72" rx="7" fill="#fff" stroke="#c3b9a1" stroke-width="2"/>
+            <g fill="#5c6152"><circle cx="48" cy="40" r="2"/><circle cx="62" cy="40" r="2"/><circle cx="76" cy="40" r="2"/><circle cx="90" cy="40" r="2"/><circle cx="104" cy="40" r="2"/><circle cx="118" cy="40" r="2"/><circle cx="132" cy="40" r="2"/><circle cx="146" cy="40" r="2"/><circle cx="48" cy="52" r="2"/><circle cx="62" cy="52" r="2"/><circle cx="76" cy="52" r="2"/><circle cx="90" cy="52" r="2"/><circle cx="104" cy="52" r="2"/><circle cx="118" cy="52" r="2"/><circle cx="132" cy="52" r="2"/><circle cx="146" cy="52" r="2"/><circle cx="48" cy="70" r="2"/><circle cx="62" cy="70" r="2"/><circle cx="76" cy="70" r="2"/><circle cx="90" cy="70" r="2"/><circle cx="104" cy="70" r="2"/><circle cx="118" cy="70" r="2"/><circle cx="132" cy="70" r="2"/><circle cx="146" cy="70" r="2"/><circle cx="48" cy="82" r="2"/><circle cx="62" cy="82" r="2"/><circle cx="76" cy="82" r="2"/><circle cx="90" cy="82" r="2"/><circle cx="104" cy="82" r="2"/><circle cx="118" cy="82" r="2"/><circle cx="132" cy="82" r="2"/><circle cx="146" cy="82" r="2"/></g>
+            <line x1="30" y1="61" x2="170" y2="61" stroke="#efe9db" stroke-width="6"/>
+            <path d="M62 52 C 76 30, 108 30, 118 50" fill="none" stroke="#2f6fb0" stroke-width="3.4" stroke-linecap="round"/>
+            <path d="M76 82 C 92 102, 120 100, 132 84" fill="none" stroke="#e5443b" stroke-width="3.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="item-corpo">
+          <h3>Protoboard 400 pontos + jumpers</h3>
+          <span class="usado-em">▸ a bancada de todos os projetos</span>
+          <p class="desc">Onde tudo se monta sem solda. A de 400 pontos é o tamanho certo pra começar: cabe qualquer projeto do site e ainda cabe no bolso.</p>
+          <p class="dica"><b>Antes de pagar, confira:</b> se o anúncio inclui os jumpers. Protoboard sem fio é frustração garantida no dia da entrega.</p>
+          <div class="item-rodape">
+            <span class="plataforma">Shopee</span>
+            <a class="buy" data-link="protoboard" target="_blank" rel="nofollow sponsored noopener">Ver na Shopee ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- NE555 -->
+      <article class="item">
+        <div class="item-figura">
+          <span class="item-ref">CI-555</span>
+          <svg viewBox="0 0 200 120" role="img" aria-label="Circuito integrado NE555 em encapsulamento DIP-8">
+            <rect x="64" y="30" width="72" height="52" rx="5" fill="#1c2118"/>
+            <path d="M92 30 a8 8 0 0 0 16 0 z" fill="#efe9db" opacity=".25"/>
+            <circle cx="74" cy="72" r="3" fill="#efe9db" opacity=".5"/>
+            <g stroke="#9aa39b" stroke-width="4" stroke-linecap="round"><line x1="72" y1="82" x2="72" y2="96"/><line x1="90" y1="82" x2="90" y2="96"/><line x1="108" y1="82" x2="108" y2="96"/><line x1="126" y1="82" x2="126" y2="96"/><line x1="72" y1="30" x2="72" y2="16"/><line x1="90" y1="30" x2="90" y2="16"/><line x1="108" y1="30" x2="108" y2="16"/><line x1="126" y1="30" x2="126" y2="16"/></g>
+            <text x="100" y="60" font-family="'IBM Plex Mono',monospace" font-size="13" font-weight="600" fill="#efe9db" text-anchor="middle">NE555</text>
+          </svg>
+        </div>
+        <div class="item-corpo">
+          <h3>CI NE555 (timer)</h3>
+          <span class="usado-em">▸ Projeto 03 — o LED que pisca sozinho</span>
+          <p class="desc">O chip mais famoso da história da eletrônica. Com ele o circuito ganha ritmo: pisca-pisca, sirene, temporizador — sem precisar de programação.</p>
+          <p class="dica"><b>Antes de pagar, confira:</b> versão DIP-8 (com perninhas), não SMD. É a que encaixa na protoboard.</p>
+          <div class="item-rodape">
+            <span class="plataforma">Shopee</span>
+            <a class="buy" data-link="ne555" target="_blank" rel="nofollow sponsored noopener">Ver na Shopee ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Kit capacitores -->
+      <article class="item">
+        <div class="item-figura">
+          <span class="item-ref">CAP-01</span>
+          <svg viewBox="0 0 200 120" role="img" aria-label="Kit de capacitores eletrolíticos">
+            <g transform="translate(58,22)"><rect x="0" y="0" width="34" height="52" rx="6" fill="#2f6fb0" opacity=".85"/><rect x="4" y="0" width="8" height="52" fill="#efe9db" opacity=".4"/><ellipse cx="17" cy="3" rx="17" ry="4" fill="#9aa39b"/><line x1="10" y1="52" x2="10" y2="78" stroke="#5c6152" stroke-width="3"/><line x1="24" y1="52" x2="24" y2="70" stroke="#5c6152" stroke-width="3"/><text x="8" y="34" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#efe9db">−</text></g>
+            <g transform="translate(112,34)"><rect x="0" y="0" width="26" height="40" rx="5" fill="#2f6fb0" opacity=".85"/><rect x="3" y="0" width="6" height="40" fill="#efe9db" opacity=".4"/><ellipse cx="13" cy="2.5" rx="13" ry="3.2" fill="#9aa39b"/><line x1="8" y1="40" x2="8" y2="64" stroke="#5c6152" stroke-width="2.6"/><line x1="19" y1="40" x2="19" y2="58" stroke="#5c6152" stroke-width="2.6"/></g>
+            <text x="52" y="112" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#5c6152">listra = perna negativa</text>
+          </svg>
+        </div>
+        <div class="item-corpo">
+          <h3>Kit capacitores eletrolíticos</h3>
+          <span class="usado-em">▸ Projeto 03 — define o ritmo do pisca</span>
+          <p class="desc">É o capacitor que dita a velocidade do pisca-pisca com o 555. Troque o valor, mude o ritmo — meio caminho pra entender o circuito de verdade.</p>
+          <p class="dica"><b>Antes de pagar, confira:</b> kit sortido com valores de 1 µF a 470 µF já cobre tudo que o site ensina.</p>
+          <div class="item-rodape">
+            <span class="plataforma">Shopee</span>
+            <a class="buy" data-link="cap-kit" target="_blank" rel="nofollow sponsored noopener">Ver na Shopee ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Suporte AA -->
+      <article class="item">
+        <div class="item-figura">
+          <span class="item-ref">BAT-01</span>
+          <svg viewBox="0 0 200 120" role="img" aria-label="Suporte para duas pilhas AA com fios">
+            <rect x="46" y="34" width="94" height="56" rx="8" fill="#1c2118"/>
+            <rect x="54" y="42" width="78" height="18" rx="9" fill="#e8d8b0" stroke="#c2703d" stroke-width="1.6"/>
+            <rect x="126" y="46" width="6" height="10" rx="2" fill="#9aa39b"/>
+            <rect x="54" y="64" width="78" height="18" rx="9" fill="#e8d8b0" stroke="#c2703d" stroke-width="1.6"/>
+            <rect x="54" y="68" width="6" height="10" rx="2" fill="#9aa39b"/>
+            <path d="M140 46 C 162 46, 162 40, 176 40" fill="none" stroke="#e5443b" stroke-width="3.4" stroke-linecap="round"/>
+            <path d="M140 78 C 162 78, 162 86, 176 86" fill="none" stroke="#1c2118" stroke-width="3.4" stroke-linecap="round"/>
+            <text x="58" y="106" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#5c6152">3V = 2 × 1,5V</text>
+          </svg>
+        </div>
+        <div class="item-corpo">
+          <h3>Suporte 2× pilhas AA com fio</h3>
+          <span class="usado-em">▸ Projetos 01 e 02 — a fonte de energia</span>
+          <p class="desc">Duas pilhas AA em série dão 3 V: energia segura pro seu primeiro circuito, sem tomada, sem susto. Os fios já vêm prontos pra protoboard.</p>
+          <p class="dica"><b>Antes de pagar, confira:</b> modelo com fios (rabicho), não o de tampa sem saída. E as pilhas vêm à parte.</p>
+          <div class="item-rodape">
+            <span class="plataforma">Shopee</span>
+            <a class="buy" data-link="suporte-aa" target="_blank" rel="nofollow sponsored noopener">Ver na Shopee ↗</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= VITRINE SHOPEE ================= -->
+  <section class="secao" id="vitrine">
+    <div class="vitrine">
+      <div>
+        <div class="secao-eyebrow">Tudo num lugar só</div>
+        <h2>Vitrine completa na Shopee</h2>
+        <p>Além das peças desta página, mantenho uma vitrine na Shopee com tudo que recomendo — atualizada sempre que testo algo novo na bancada. Preço e frete você vê por lá, direto no anúncio.</p>
+      </div>
+      <a href="https://collshp.com/eletronica01" target="_blank" rel="nofollow sponsored noopener" class="btn btn-shopee">🛍 Abrir a vitrine ↗</a>
+    </div>
+  </section>
+
+  <!-- ================= COMO FUNCIONA ================= -->
+  <section class="secao">
+    <div class="honesto">
+      <h2>Como essa loja funciona (papo reto)</h2>
+      <p>Eu não vendo nada diretamente — os links levam pra Shopee com meu código de afiliado. Se você comprar por eles, a Shopee me repassa uma pequena comissão e <b>você paga exatamente o mesmo preço</b>. É isso que paga o domínio e mantém o site no ar, sem anúncio invadindo a página.</p>
+      <p>Só entra aqui o que os projetos do site realmente usam. Preço, estoque e frete são da Shopee e mudam o tempo todo — por isso não mostro preço aqui: o valor certo é sempre o do anúncio.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <h5>⚡ Eletrônica 01 · Loja</h5>
+      <p>A lista de compras dos projetos do site. Escolha a peça, confira a dica antes de pagar, e monte na <a href="/#bancada" style="color:var(--pcb)">bancada virtual</a> enquanto o pedido não chega.</p>
+    </div>
+    <div>
+      <p class="disc"><b>Sobre os links de afiliado:</b> os links levam à Shopee com meu código de afiliado. Se você comprar por eles, recebo uma pequena comissão, e você paga exatamente o mesmo preço. Isso ajuda a manter o site no ar. Recomendo só o que faz sentido pro projeto.</p>
+    </div>
+  </div>
+  <div class="copy">© 2026 Eletrônica 01 · por Paulo Sergio M. Seguins · eletrônica pra aprender e se divertir</div>
+</footer>
+
+<script>
+  /* ┌──────────────────────────────────────────────────────────────┐
+     │  LINKS DE AFILIADO SHOPEE — mantenha IGUAL ao index.html     │
+     │  principal do site. Quando atualizar lá, copie pra cá.       │
+     │                                                              │
+     │  Chave com "" (vazia) → o botao vira BUSCA na Shopee         │
+     │  (funciona, mas NAO gera comissao) e fica marcado.           │
+     └──────────────────────────────────────────────────────────────┘ */
+  const LINKS = {
+    "led-5mm":        "https://s.shopee.com.br/9fJP0rcxg9",
+    "resistor-kit":   "https://s.shopee.com.br/9pcpGULFOG?share_channel_code=1",
+    "suporte-aa":     "https://s.shopee.com.br/2VqEWM3rdt?share_channel_code=1",
+    "protoboard":     "https://s.shopee.com.br/4fujttursx?share_channel_code=1",
+    "ne555":          "https://s.shopee.com.br/20tyicfFah?share_channel_code=1",
+    "cap-kit":        "https://s.shopee.com.br/9pcq68LBfr?share_channel_code=1",
+    "arduino-uno":    "https://s.shopee.com.br/7fYLWQZuA9?share_channel_code=1",
+    "kit-iniciante":  "",
+    "kit-arduino":    "https://s.shopee.com.br/6ffoIH0XqN?share_channel_code=1"
+  };
+
+  // Termo de busca usado como reserva enquanto o link nao foi preenchido
+  const BUSCA = {
+    "led-5mm":"led 5mm difuso","resistor-kit":"kit resistores 1/4w","suporte-aa":"suporte 2 pilhas aa com fio",
+    "protoboard":"protoboard 400 pontos jumpers","ne555":"ci ne555 timer","cap-kit":"kit capacitor eletrolitico",
+    "arduino-uno":"arduino uno r3 cabo","kit-iniciante":"kit iniciante eletronica protoboard","kit-arduino":"kit robotica arduino sensores"
+  };
+
+  document.querySelectorAll("a.buy[data-link]").forEach(function(a){
+    var chave = a.getAttribute("data-link");
+    var url = (LINKS[chave] || "").trim();
+    if(url){
+      a.href = url;
+    } else {
+      a.href = "https://shopee.com.br/search?keyword=" + encodeURIComponent(BUSCA[chave] || chave);
+      a.classList.add("sem-link");
+      a.title = "Link de afiliado ainda nao configurado — leva a uma busca na Shopee (sem comissao)";
+      a.textContent = "Buscar na Shopee ↗";
+    }
+  });
+</script>
+
+</body>
+</html>
